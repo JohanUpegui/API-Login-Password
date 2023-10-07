@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Login</title>
+    <link rel="stylesheet" href="https://bootswatch.com/3/cerulean/bootstrap.min.css">
+</head>
+<body>
+  <style>
+   
+  body {   
+    margin: 0; 
+    background-color: rgb(167, 246, 246);
+    color: rgb(5, 116, 236);
+    font-size: 1.5rem;
+    line-height: 1.5em;
+  }  
+
+  .header {
+    padding: 2rem 0;
+    background: rgb(61, 246, 243);   
+  }  
+
+  .header a {
+    color: rgb(5, 116, 236);
+    text-decoration: none;  
+    
+  }
+
+  .logo-nav-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+ 
+
+  .logo {
+    letter-spacing: 5px;
+    font-size: 2.5rem;
+
+  }
+
+  .navigation ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .navigation ul li {
+    display: inline-block;
+  }
+
+  .navigation ul a {
+    display: block;
+    padding: 0.5rem 1rem;
+    transition: all 0.4s linear;
+    border-radius: 10px;
+  }
+
+  .navigation ul a:hover {
+    background: rgb(67, 208, 244);
+  }
+  
+  </style>
+
+  <header class="header">
+    <div class="container logo-nav-container">      
+      <a class="logo" href="#">Login User</a>       
+      <nav class="navigation">
+        <ul> 
+                
+          <% if(user) {%>
+                    
+            <li><a class="nav-link" href="/profile">Profile</a></li>
+            <li><a class="nav-link" href="/signin">Salir</a></li>
+                      
+
+          <% } else {%>
+                
+              
+          <li><a class="nav-link" href="/signin">Ingresar</a></li>              
+          <li><a class="nav-link" href="/signup">Registrarse</a></li>
+              
+          <% } %>
+        </ul>      
+      </nav>
+    </div>  
+  </header>  
+
+      <div class="container-datos">
+          <% if (signupMessage.length > 0){ %>
+              <div class="alert alert-danger">
+                  <%= signupMessage %>
+              </div>         
+          <% } %>
+      
+          <% if (signinMessage.length > 0){ %>
+              <div class="alert alert-danger">
+                  <%= signinMessage %>
+              </div>         
+          <% } %>
+      
+        <%- body %>
+      
+      </div>
+    </div>  
+   
+</body>
+</html>
